@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rust PostgreSQL App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rust PostgreSQL App</h1>
+    <div id="values-container"></div>
+
+    <script>
+        async function fetchData() {
+            const response = await fetch("http://localhost:8000/");
+            console.log(response);
+            const values = await response.json();
+            console.log(values);
+
+            const valuesContainer = document.getElementById("values-container");
+            valuesContainer.innerText = `Values: ${values}`;
+        }
+
+        fetchData();
+    </script>
+</body>
+</html>
